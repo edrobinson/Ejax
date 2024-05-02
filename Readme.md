@@ -2,7 +2,7 @@
 Ejax provides tools send a request to the server and receive and the response using Javascript and PHP.  
 The response contains commands to update page without refreshing the page.  
 
-Nothing new. Xajax did it several years ago and Jaxon does it today. The difference is that Ejax does it with only 4 files and less than 1000 lines of heavily commented code.
+Nothing new. Xajax did it several years ago and Jaxon does it today. The difference is that Ejax does it with only 3 files and less than 1000 lines of heavily commented code.
 
 #### The code
  - Ejax.js contains the client side Javascript code that makes requests and receives and processes the response from the server.
