@@ -30,9 +30,10 @@
 
     $_SESSION['path'] = $path;
     $pathParts = explode('/',$path);
-    $className = $pathParts[2];
+
+    $className = $pathParts[3];
     
-    if($className == 'demo')
+    if($className == '')
     {
       $className = 'Index';
     }
@@ -41,7 +42,7 @@
     //Suffix with "Page" - all page classes are like IndexPage.php
     $className = ucfirst($className);   
     
-    //Does it exist>
+    //Construct the path to theclass file
     $classPath = CLASSES_PATH.$className.CLASS_EXT;
 
     if (!file_exists($classPath))

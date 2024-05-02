@@ -11,7 +11,7 @@ return array(
     'Ejax' => $baseDir . '/../src/Ejax.php',
     'EjaxTraits' => $baseDir . '/../src/EjaxTraits.php',
     'Index' => $baseDir . '/classes/Index.php',
-    'IndexServer' => $baseDir . '/classes/IndexServer.php',
+    'IndexServerClass' => $baseDir . '/classes/IndexServerClass.php',
     'PageClassTraits' => $baseDir . '/classes/PageClassTraits.php',
     'Smarty' => $vendorDir . '/smarty/smarty/libs/Smarty.class.php',
     'SmartyCompilerException' => $vendorDir . '/smarty/smarty/libs/sysplugins/smartycompilerexception.php',

@@ -1,9 +1,12 @@
 <?php
 /*
-  File: Ejax/EjaxTraits.php
+  File: Ejax/EjaxProcessing.php
   
-  This trait contains 3 methods that drive all of the request/response processing
-  for your service classes:
+  This file contains 3 functions that drive all of the request/response processing
+  for your service scripts.
+  
+  If your server side scripts do not define classes, require this file  and simply
+  call processRequest().
   
   1. canProcessRequest() determines if there is a request available to process
      based on the presence of the $_POST global. Returns true or false.
@@ -22,11 +25,9 @@
   
   In your server class constructor just call processRequest().
 */
-trait EjaxTraits
-{
     
-    public $reqData;    //The request data
-    public $ejax;       	//Instance of Ejax
+    $reqData = '';    //The request data
+    $ejax = '';       	//Instance of Ejax
 
     /**
      * This method determines if there is a request available
@@ -35,7 +36,7 @@ trait EjaxTraits
      *
      * The function is used by the processRequest function below.
      */
-    public function canProcessRequest()
+    function canProcessRequest()
     {
       return (isset($_POST)) ? true : false;
     }
@@ -49,13 +50,13 @@ trait EjaxTraits
      *
      * 2. Otherwise, it's an error so echo a message about it.
      */
-    public function processRequest()
+    function processRequest()
     {
         if($this->canProcessRequest())
         {
-            $this->ejax    = new Ejax();                    
-            $this->reqData = json_decode(file_get_contents("php://input"));
-            $this->dispatcher();
+            $ejax    = new Ejax();                    
+            $reqData = json_decode(file_get_contents("php://input"));
+            dispatcher($ejax, $reqData);
         }else{
           echo('No request data received - please contact support.');
           die;
@@ -69,25 +70,26 @@ trait EjaxTraits
      * 3. Invoke the method.
      * 4. Send the response.
      */
-    public function dispatcher()
+    function dispatcher($ejax, $reqData);
     {
-        $sMethod    = $this->reqData[0];        //Requested method
-        $aArguments = $this->reqData[1];      //Method arguments
-        
-        //Assure that the method exists in this class
-		//and that it is pubic
-        try {
-            $ref = new ReflectionMethod($this, $sMethod);		//Does the method exist?
-            if (!$ref->isPublic()) //Is it public?
+        $sFunction     = $reqData[0];        //Requested function
+        $aArguments = $reqData[1];      //Method arguments
+
+        //Assure that the function exists 
+		//and that it is user defined.
+		try{
+			$func = new ReflectionFunction($sFunction)
+			if(!$func->isUserDefined)
 			{
-               throw new RuntimeException("The called method is not public.");
+				$ejax->alert("Error. Function $sFunction s not available.");
+				$ejax->sendResponse();
 			}
-        } catch (Exception $e) {
-            $this->ejax->alert("Error: Method $sMethod is not available in this service.");
-            $this->ejax->sendResponse();
-        }
+		}catch (Exception $e) {
+			$ejax->alert("Error. Function $sFunction s not available.");
+			$ejax->sendResponse();
+		}
         //Complete the request.
-        $this->$sMethod($aArguments);         //Invoke the method
-        $this->ejax->sendResponse();         	 //Send the response when the method completes.
+        $sFunction($aArguments);         //Invoke the method
+        $ejax->sendResponse();         	 //Send the response when the method completes.
         }  
     }

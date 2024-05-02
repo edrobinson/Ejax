@@ -4,11 +4,11 @@
  *  Called from the home page of the demo project.
  *
  *  The constructor calls the propcessRequest trait and
- *  and it handles all of processing:
- */
+ *  and it handles all of processing.
+  */
 
- require '../vendor/autoload.php';
-
+ require './vendor/autoload.php';
+ 
 class IndexServer
 {
     use EjaxTraits; //Client request handlers
@@ -161,10 +161,4 @@ class IndexServer
         //Assign the string to the #target div.
         $this->ejax->userFunc('formFiller', $aVals);
     }
-    
-    
 }
-
-//Instance the class - IMPORTANT!!! nothing will happen if the class isn't instanced...
-$idc = new IndexServer();
-

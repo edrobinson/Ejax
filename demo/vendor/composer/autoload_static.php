@@ -12,7 +12,7 @@ class ComposerStaticInit718afe0ddc5bc89a763a6a9f9f912ea8
         'Ejax' => __DIR__ . '/../..' . '/../src/Ejax.php',
         'EjaxTraits' => __DIR__ . '/../..' . '/../src/EjaxTraits.php',
         'Index' => __DIR__ . '/../..' . '/classes/Index.php',
-        'IndexServer' => __DIR__ . '/../..' . '/classes/IndexServer.php',
+        'IndexServerClass' => __DIR__ . '/../..' . '/classes/IndexServerClass.php',
         'PageClassTraits' => __DIR__ . '/../..' . '/classes/PageClassTraits.php',
         'Smarty' => __DIR__ . '/..' . '/smarty/smarty/libs/Smarty.class.php',
         'SmartyCompilerException' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smartycompilerexception.php',

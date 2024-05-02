@@ -9,7 +9,8 @@
 
  */
 //The url on the server
-var theUrl = 'classes/IndexServer.php';
+//Intercepted by index.php which loads the IndexServer class
+var theUrl = 'IndexServer';
 
 //Instance the client side Ejax class
 var ejax = new Ejax(theUrl);
