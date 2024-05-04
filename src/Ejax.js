@@ -24,7 +24,7 @@ class Ejax {
     this.bErrored = false; 
 
     //Prep the data
-    var theData = JSON.stringify([theMethod, theArgs]);
+    let theData = JSON.stringify([theMethod, theArgs]);
 
     const theRequest = new Request(theURL, {
       method: "POST",
@@ -69,7 +69,7 @@ class Ejax {
     actions.forEach((action) => {
       let method = action.action;  //Who to call
       let args      = action.params; //Arguments
-      this[method](args); 				//Call the method thru the method var
+      this[method](args); 				//Call the method thru the method let
     })
   }
 
@@ -91,7 +91,7 @@ class Ejax {
     }
 
     let element = document.getElementById(id);
-    var tagtype = element.tagName;
+    let tagtype = element.tagName;
     tagtype = tagtype.toLowerCase();
 	if(tagtype == 'input')
 	{
@@ -145,13 +145,13 @@ class Ejax {
   // Replace a specified value with another value within the given element's attribute
   //replace(string $sTarget, string $sAttribute, string $sSearch, string $sData)
   replace(args) {
-    var id = args['id'];
-    var attribute = args['prop'];
-    var searchval = args['search'];
-    var replaceval = args['value'];
+    let id = args['id'];
+    let attribute = args['prop'];
+    let searchval = args['search'];
+    let replaceval = args['value'];
 
-	var element = document.getElementById(id)
-    var content = element.innerHTML;
+	let element = document.getElementById(id)
+    let content = element.innerHTML;
 
     let res = content.replace(searchval, replaceval);
 
@@ -160,9 +160,9 @@ class Ejax {
 
   // Clear the text of an element
   clearText(args) {
-    var id = args['id'];
-    var element = document.getElementById(id);
-    var tagtype = element.tagName;
+    let id = args['id'];
+    let element = document.getElementById(id);
+    let tagtype = element.tagName;
     tagtype = tagtype.toLowerCase();
 	if(tagtype == 'input')
 	{
@@ -176,18 +176,18 @@ class Ejax {
   //create(string $sParent, string $sTag, string $sId, string $position)
   //position takes before or after only
   create(args) {
-    var id = args['id']; //New element id
-    var sParentId = args['parent']; //Parent id
-    var sTag = args['tag']; //Tag type - i.e. textarea
-    var position = args['position']; //Relative position - after, before
+    let id = args['id']; //New element id
+    let sParentId = args['parent']; //Parent id
+    let sTag = args['tag']; //Tag type - i.e. textarea
+    let position = args['position']; //Relative position - after, before
 
     if (position != 'after' && position != 'before') {
       alert('In Create, the position must be "before" or "after".');
       throw new Error('In Create, the position must be "before" or "after".');
       return false;
 	}
-    var parent = document.getElementById(sParentId); //Get the new element's parent's id
-    var newElement = document.createElement(sTag); //The new element
+    let parent = document.getElementById(sParentId); //Get the new element's parent's id
+    let newElement = document.createElement(sTag); //The new element
     newElement.setAttribute('id', id); //Set it's id
 
     //Position the new element relative to it's parent
@@ -246,7 +246,7 @@ class Ejax {
   // Execute the specified javascript code
   //script(string $sJsCode)
   script(args) {
-    var js = args['jscode'];
+    let js = args['jscode'];
     eval(js);
   }
   

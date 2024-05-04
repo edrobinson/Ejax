@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-05-01 21:52:04
+/* Smarty version 4.3.4, created on 2024-05-04 22:13:07
   from 'C:\wamp64\www\Ejax\demo\smarty-templates\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6632b984d597a1_29624194',
+  'unifunc' => 'content_6636b2f34a7e86_14312521',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:TestSelect.tpl' => 1,
   ),
 ),false)) {
-function content_6632b984d597a1_29624194 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6636b2f34a7e86_14312521 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <div class="d-flex justify-content-center mt-5">
       <button class="btn btn-primary me-2" onclick="sayWelcome()">Click for Welcome</button>
       <button class="btn btn-primary me-2" onclick="getImage()">Click for Image</button>
