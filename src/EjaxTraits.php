@@ -2,7 +2,7 @@
 /*
   File: Ejax/EjaxTraits.php
   
-  This trait contains 3 methods that drive all of the request/response processing
+  This trait contains 3 methods that drive the request/response processing
   for your service classes:
   
   1. canProcessRequest() determines if there is a request available to process
@@ -14,13 +14,6 @@
   3. dispatcher() extracts the requested method and its arguments, 
      makes sure the method is calllable in your class then calls the metdod
      and returns the response to the client.  
-*/
-/*
-  This trait is what drives your server classes by
-  detecting a request, routing it to the proper method
-  and returning the response to the client.
-  
-  In your server class constructor just call processRequest().
 */
 trait EjaxTraits
 {

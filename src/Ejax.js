@@ -5,10 +5,10 @@
 class Ejax { 
   ejaxJson = '';
   bErrored = false; //Error flag
-  url;                     //Server URL
+  //url;                     //Server URL
 
-  constructor(sUrl) {
-	this.url = sUrl;
+  constructor() {
+	this.bErrored = false;
   }
 /******************** Request and Response Handlers *********************/
   /*

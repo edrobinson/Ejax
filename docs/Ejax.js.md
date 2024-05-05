@@ -14,16 +14,18 @@ JS code
 class Ejax { 
   
   errored = false;  //Error flag
-  url; //Server URL
-
-  //The constructor just stores the URL of the server PHP
-  constructor(sUrl) {
-	this.url = sUrl;
+  
+  //The constructor just turns offf the error flag
+  constructor() {
+	this.bErrored = false;
   }
   /******************** Request and Response Handlers *********************/
   /*
   Send a request to a PHP class on the server then
   run the response handler method when complete.
+  Note: The theURL argument contains the name of the class to instance on the server.
+			As a result, your pages can call any of your server side classes depending
+			on what services you want. I.e. if you want to send an email, call our email class.
 
   Parameters:
   theURL:         string  The URL of the service - a class

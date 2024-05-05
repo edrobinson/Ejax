@@ -8,12 +8,13 @@
   of the services.
 
  */
-//The url on the server
-//Intercepted by index.php which loads the IndexServer class
+//The url of the server class
+//Note: This example uses a single server side class. 
+//There is, however, nothing barring the use of different classes for different purposes.
 var theUrl = 'IndexServer';
 
 //Instance the client side Ejax class
-var ejax = new Ejax(theUrl);
+var ejax = new Ejax();
 
 //Call the 'welcomeMessage' method in Index_c class
 //The method creates an HTML string containing the 
